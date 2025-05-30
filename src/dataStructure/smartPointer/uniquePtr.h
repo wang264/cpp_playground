@@ -83,8 +83,8 @@ class UniquePtr {
         _deleter(_ptr);
         _ptr = p;
     }
-    friend void swap(UniquePtr<T,Deleter>& a,
-                                        UniquePtr<T,Deleter>& b) noexcept;
+    template <typename U, typename D>
+    friend void swap(UniquePtr<U,D>& a,UniquePtr<U,D>& b) noexcept;
     private:
         T* _ptr;
         Deleter _deleter;
